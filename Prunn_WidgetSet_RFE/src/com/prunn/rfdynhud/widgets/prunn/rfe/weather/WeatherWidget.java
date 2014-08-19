@@ -55,7 +55,7 @@ public class WeatherWidget extends Widget
     @Override
     public void onRealtimeEntered( LiveGameData gameData, boolean isEditorMode )
     {
-        super.onRealtimeEntered( gameData, isEditorMode );
+        super.onCockpitEntered( gameData, isEditorMode );
     }
     
     /**
@@ -90,10 +90,10 @@ public class WeatherWidget extends Widget
         super.updateVisibility( gameData, isEditorMode );
         
            
-        rainingSeverity.update( gameData.getScoringInfo().getRainingSeverity() );
-        onPathWetness.update( gameData.getScoringInfo().getOnPathWetness() );
-        offPathWetness.update( gameData.getScoringInfo().getOffPathWetness() );
-        cloudDarkness.update( gameData.getScoringInfo().getCloudDarkness() );
+        rainingSeverity.update( gameData.getWeatherInfo().getRainingSeverity() );
+        onPathWetness.update( gameData.getWeatherInfo().getOnPathWetness() );
+        offPathWetness.update( gameData.getWeatherInfo().getOffPathWetness() );
+        cloudDarkness.update( gameData.getWeatherInfo().getCloudDarkness() );
         if((rainingSeverity.hasChanged() || cloudDarkness.hasChanged()) && !isEditorMode)
         {
             /*if(rainingSeverity.getValue() > 0f)
